@@ -117,14 +117,14 @@
 
         .btn-inject {
             display: block;
-            margin: 30px auto;
+            margin: 15px auto;
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
             background: linear-gradient(135deg, #ff1a1a, #800000);
             color: white;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.3s ease;
         }
 
@@ -159,6 +159,35 @@
             padding: 20px;
         }
 
+        /* New layout adjustments for Tab 2 and Tab 3 */
+        .modloader-box, .modmenu-box {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px 1%;
+        }
+
+        .connection-box h3 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .btn-server {
+            width: 100%;
+            padding: 12px 25px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #ff1a1a, #800000);
+            border: none;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-server:hover {
+            transform: scale(1.05);
+        }
     </style>
     <script>
         function showTab(tabId) {
@@ -204,6 +233,7 @@
     </div>
 
     <div class="tab active" id="tab1">
+    <div class="tab active" id="tab1">
         <div class="actions-section">
             <div class="checkbox-group">
                 <input type="checkbox" id="anti-ban-script" onclick="toggleCheckboxWithDelay('anti-ban-script', 'ip-address')">
@@ -231,25 +261,29 @@
         </div>
     </div>
 
+    </div>
+
     <div class="tab" id="tab2">
         <h2>ModLoader Injection</h2>
         <div class="connection-box">
-            <h3>ModLoaders</h3>
-            <button class="btn-inject" id="modloader1" onclick="showStatusMessage('modloader1')">HaxcasaLoader V578</button>
-            <button class="btn-inject" id="modloader2" onclick="showStatusMessage('modloader2')">FuryDemonV3</button>
-            <button class="btn-inject" id="modloader3" onclick="showStatusMessage('modloader3')">Supreme ModLoader</button>
-            <button class="btn-inject" id="modloader4" onclick="showStatusMessage('modloader4')">Esctasy V5</button>
-            <button class="btn-inject" id="modloader5" onclick="showStatusMessage('modloader5')">Anonymous</button>
-            <button class="btn-inject" id="modloader6" onclick="showStatusMessage('modloader6')">AnonymousRebug</button>
-        </div>
+            <div class="modloader-box">
+                <h3>ModLoaders</h3>
+                <button class="btn-inject" id="modloader1" onclick="showStatusMessage('modloader1')">HaxcasaLoader V578</button>
+                <button class="btn-inject" id="modloader2" onclick="showStatusMessage('modloader2')">FuryDemonV3</button>
+                <button class="btn-inject" id="modloader3" onclick="showStatusMessage('modloader3')">Supreme ModLoader</button>
+                <button class="btn-inject" id="modloader4" onclick="showStatusMessage('modloader4')">Esctasy V5</button>
+                <button class="btn-inject" id="modloader5" onclick="showStatusMessage('modloader5')">Anonymous</button>
+                <button class="btn-inject" id="modloader6" onclick="showStatusMessage('modloader6')">AnonymousRebug</button>
+            </div>
 
-        <div class="connection-box">
-            <h3>ModMenus</h3>
-            <button class="btn-inject" id="modmenu1" onclick="showStatusMessage('modmenu1')">AP II TENSE</button>
-            <button class="btn-inject" id="modmenu2" onclick="showStatusMessage('modmenu2')">NOT YOUR DOPE</button>
-            <button class="btn-inject" id="modmenu3" onclick="showStatusMessage('modmenu3')">Arabic Safe Guy</button>
-            <button class="btn-inject" id="modmenu4" onclick="showStatusMessage('modmenu4')">Haxcasas Premium Menu</button>
-            <p>Other ModMenus are included in the ModLoaders.</p>
+            <div class="modmenu-box">
+                <h3>ModMenus</h3>
+                <button class="btn-inject" id="modmenu1" onclick="showStatusMessage('modmenu1')">AP II TENSE</button>
+                <button class="btn-inject" id="modmenu2" onclick="showStatusMessage('modmenu2')">NOT YOUR DOPE</button>
+                <button class="btn-inject" id="modmenu3" onclick="showStatusMessage('modmenu3')">Arabic Safe Guy</button>
+                <button class="btn-inject" id="modmenu4" onclick="showStatusMessage('modmenu4')">Haxcasas Premium Menu</button>
+                <p>Other ModMenus are included in the ModLoaders.</p>
+            </div>
         </div>
     </div>
 
@@ -257,36 +291,18 @@
         <h2>GTA V Servers</h2>
         <div class="connection-box">
             <h3>GTA RE:V</h3>
-            <div class="checkbox-group">
-                <input type="checkbox" id="staffrank-eboot">
-                <label for="staffrank-eboot">StaffRankEBOOT.BIN</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="antiban-eboot">
-                <label for="antiban-eboot">AntiBanEBOOT.BIN</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="bypass-nomodmenu-eboot">
-                <label for="bypass-nomodmenu-eboot">Bypass NoModMenuEBOOT.BIN</label>
-            </div>
+            <button class="btn-server" id="staffrank-eboot" onclick="showStatusMessage('staffrank-eboot')">StaffRankEBOOT.BIN</button>
+            <button class="btn-server" id="antiban-eboot" onclick="showStatusMessage('antiban-eboot')">AntiBanEBOOT.BIN</button>
+            <button class="btn-server" id="bypass-nomodmenu-eboot" onclick="showStatusMessage('bypass-nomodmenu-eboot')">Bypass NoModMenuEBOOT.BIN</button>
             <p>You can select all Checkboxes to Merge the EBOOT.BIN</p>
         </div>
 
         <div class="connection-box">
             <h3>FiveM PS3</h3>
-            <div class="checkbox-group">
-                <input type="checkbox" id="install-mods">
-                <label for="install-mods">Install all required Mods</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="create-account">
-                <label for="create-account">Create FiveM Account</label>
-            </div>
+            <button class="btn-server" id="install-mods" onclick="showStatusMessage('install-mods')">Install all required Mods</button>
+            <button class="btn-server" id="create-account" onclick="showStatusMessage('create-account')">Create FiveM Account</button>
+            <button class="btn-server" id="use-cloud-server" onclick="showStatusMessage('use-cloud-server')">Use Cloud Server</button>
             <p>If On DevConsole:</p>
-            <div class="checkbox-group">
-                <input type="checkbox" id="use-cloud-server">
-                <label for="use-cloud-server">Use Cloud Server</label>
-            </div>
             <p>FiveM PS3 is just like FiveM on the PC! Realistic Mods and Roleplaying</p>
         </div>
     </div>
