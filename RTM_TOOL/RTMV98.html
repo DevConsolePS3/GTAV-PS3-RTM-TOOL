@@ -62,13 +62,10 @@
             background: rgba(0, 0, 0, 0.9);
             border-radius: 15px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
         }
 
         .tab.active {
-            display: flex;
+            display: block;
         }
 
         .form-group {
@@ -120,14 +117,14 @@
 
         .btn-inject {
             display: block;
-            margin: 10px auto;
+            margin: 30px auto;
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
             background: linear-gradient(135deg, #ff1a1a, #800000);
             color: white;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
@@ -235,63 +232,62 @@
     </div>
 
     <div class="tab" id="tab2">
-        <div class="actions-section">
-            <div class="connection-box">
-                <h2>ModLoaders</h2>
-                <button class="btn-inject" id="haxcasa-loader" onclick="showStatusMessage('haxcasa-loader')">1. HaxcasaLoader V578</button>
-                <button class="btn-inject" id="fury-demon" onclick="showStatusMessage('fury-demon')">2. FuryDemonV3</button>
-                <button class="btn-inject" id="supreme-loader" onclick="showStatusMessage('supreme-loader')">3. Supreme ModLoader</button>
-                <button class="btn-inject" id="ecstasy-v5" onclick="showStatusMessage('ecstasy-v5')">4. Esctasy V5</button>
-                <button class="btn-inject" id="anonymous" onclick="showStatusMessage('anonymous')">5. Anonymous</button>
-                <button class="btn-inject" id="anonymous-rebug" onclick="showStatusMessage('anonymous-rebug')">6. AnonymousRebug</button>
-            </div>
+        <h2>ModLoader Injection</h2>
+        <div class="connection-box">
+            <h3>ModLoaders</h3>
+            <button class="btn-inject" id="modloader1" onclick="showStatusMessage('modloader1')">HaxcasaLoader V578</button>
+            <button class="btn-inject" id="modloader2" onclick="showStatusMessage('modloader2')">FuryDemonV3</button>
+            <button class="btn-inject" id="modloader3" onclick="showStatusMessage('modloader3')">Supreme ModLoader</button>
+            <button class="btn-inject" id="modloader4" onclick="showStatusMessage('modloader4')">Esctasy V5</button>
+            <button class="btn-inject" id="modloader5" onclick="showStatusMessage('modloader5')">Anonymous</button>
+            <button class="btn-inject" id="modloader6" onclick="showStatusMessage('modloader6')">AnonymousRebug</button>
+        </div>
 
-            <div class="connection-box">
-                <h2>ModMenus</h2>
-                <button class="btn-inject" id="ap-ii-tense" onclick="showStatusMessage('ap-ii-tense')">1. AP II TENSE</button>
-                <button class="btn-inject" id="not-your-dope" onclick="showStatusMessage('not-your-dope')">2. NOT YOUR DOPE</button>
-                <button class="btn-inject" id="arabic-safe-guy" onclick="showStatusMessage('arabic-safe-guy')">3. Arabic Safe Guy</button>
-                <button class="btn-inject" id="haxcasa-premium" onclick="showStatusMessage('haxcasa-premium')">4. Haxcasas Premium Menu</button>
-                <p>Other ModMenus are included in the ModLoaders.</p>
-            </div>
+        <div class="connection-box">
+            <h3>ModMenus</h3>
+            <button class="btn-inject" id="modmenu1" onclick="showStatusMessage('modmenu1')">AP II TENSE</button>
+            <button class="btn-inject" id="modmenu2" onclick="showStatusMessage('modmenu2')">NOT YOUR DOPE</button>
+            <button class="btn-inject" id="modmenu3" onclick="showStatusMessage('modmenu3')">Arabic Safe Guy</button>
+            <button class="btn-inject" id="modmenu4" onclick="showStatusMessage('modmenu4')">Haxcasas Premium Menu</button>
+            <p>Other ModMenus are included in the ModLoaders.</p>
         </div>
     </div>
 
     <div class="tab" id="tab3">
-        <div class="actions-section">
-            <div class="connection-box">
-                <h2>GTA V PS3 Online Servers</h2>
-                <h3>1. GTA RE:V</h3>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="staff-rank">
-                    <label for="staff-rank">StaffRankEBOOT.BIN</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="anti-ban-eboot">
-                    <label for="anti-ban-eboot">AntiBanEBOOT.BIN</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="bypass-nomodmenu">
-                    <label for="bypass-nomodmenu">Bypass NoModMenuEBOOT.BIN</label>
-                </div>
-                <p>You can select all Checkboxes to Merge the EBOOT.BIN.</p>
-
-                <h3>2. FiveM PS3</h3>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="install-mods">
-                    <label for="install-mods">Install all required Mods</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="create-account">
-                    <label for="create-account">Create FiveM Account</label>
-                </div>
-                <p>If On DevConsole:</p>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="use-cloud">
-                    <label for="use-cloud">Use Cloud Server</label>
-                </div>
-                <p>FiveM PS3 is just like FiveM on the PC! Realistic Mods and Roleplaying.</p>
+        <h2>GTA V Servers</h2>
+        <div class="connection-box">
+            <h3>GTA RE:V</h3>
+            <div class="checkbox-group">
+                <input type="checkbox" id="staffrank-eboot">
+                <label for="staffrank-eboot">StaffRankEBOOT.BIN</label>
             </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="antiban-eboot">
+                <label for="antiban-eboot">AntiBanEBOOT.BIN</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="bypass-nomodmenu-eboot">
+                <label for="bypass-nomodmenu-eboot">Bypass NoModMenuEBOOT.BIN</label>
+            </div>
+            <p>You can select all Checkboxes to Merge the EBOOT.BIN</p>
+        </div>
+
+        <div class="connection-box">
+            <h3>FiveM PS3</h3>
+            <div class="checkbox-group">
+                <input type="checkbox" id="install-mods">
+                <label for="install-mods">Install all required Mods</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="create-account">
+                <label for="create-account">Create FiveM Account</label>
+            </div>
+            <p>If On DevConsole:</p>
+            <div class="checkbox-group">
+                <input type="checkbox" id="use-cloud-server">
+                <label for="use-cloud-server">Use Cloud Server</label>
+            </div>
+            <p>FiveM PS3 is just like FiveM on the PC! Realistic Mods and Roleplaying</p>
         </div>
     </div>
 </body>
