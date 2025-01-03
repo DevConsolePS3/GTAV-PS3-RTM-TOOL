@@ -6,100 +6,166 @@
     <title>GTA V Ultimate PS3 RTM TOOL</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('hazard-image.jpg'); /* Replace with actual hazard image URL */
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #1a1a1a, #333);
             color: white;
+            overflow: hidden;
         }
 
         .title {
             text-align: center;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: red;
+            margin: 20px auto;
+            padding: 10px 30px;
+            background: linear-gradient(135deg, #ff1a1a, #800000);
             color: white;
-            font-size: 24px;
-            border-radius: 5px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 50, 50, 0.8);
+            text-transform: uppercase;
         }
 
-        .tabs {
-            margin: 20px;
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #333, #444);
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #ff1a1a, #800000);
+            box-shadow: 0px 0px 10px rgba(255, 50, 50, 0.8);
+        }
+
+        .tab-button:hover {
+            transform: scale(1.1);
         }
 
         .tab {
-            border: 1px solid #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 5px;
+            display: none;
+            padding: 20px;
+            margin: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
         }
 
-        .tab h2 {
-            margin-bottom: 15px;
+        .tab.active {
+            display: block;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .form-group input[type="text"] {
-            width: calc(100% - 110px);
-            padding: 8px;
-            border: 1px solid #fff;
-            border-radius: 3px;
-            background: rgba(255, 255, 255, 0.2);
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #222, #444);
             color: white;
+            font-size: 16px;
         }
 
         .form-group button {
-            padding: 8px 15px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 3px;
-            background-color: red;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff1a1a, #800000);
             color: white;
             cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group button:hover {
+            transform: scale(1.1);
         }
 
         .checkbox-group {
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         .checkbox-group input {
             margin-right: 10px;
+            transform: scale(1.5);
+        }
+
+        .checkbox-group label {
+            font-size: 16px;
         }
 
         .btn-inject {
             display: block;
-            width: fit-content;
-            margin: 10px auto;
-            padding: 10px 20px;
+            margin: 30px auto;
+            padding: 15px 30px;
             border: none;
-            border-radius: 3px;
-            background-color: red;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff1a1a, #800000);
             color: white;
             cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-inject:hover {
+            transform: scale(1.1);
         }
 
         .status-message {
             text-align: center;
-            margin-top: 10px;
-            color: green;
+            margin-top: 15px;
+            color: #0f0;
             font-weight: bold;
             display: none;
         }
 
-        .hidden {
-            display: none;
+        .error-message {
+            color: #f00;
+            font-size: 14px;
+            margin-top: 5px;
         }
     </style>
     <script>
-        function toggleCheckboxWithDelay(checkboxId) {
+        function showTab(tabId) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+        }
+
+        function toggleCheckboxWithDelay(checkboxId, inputId) {
+            const inputValue = document.getElementById(inputId).value;
+            const errorMessage = document.getElementById(checkboxId + '-error');
+
+            if (!inputValue) {
+                errorMessage.textContent = 'Need Connection';
+                return;
+            } else {
+                errorMessage.textContent = '';
+            }
+
             setTimeout(() => {
                 document.getElementById(checkboxId).checked = true;
             }, 2000); // 2-second delay
@@ -117,35 +183,40 @@
 <body>
     <div class="title">GTA V Ultimate PS3 RTM TOOL</div>
 
-    <div class="tabs">
-        <div class="tab" id="tab1">
-            <h2>Connection Point</h2>
-            <div class="form-group">
-                <input type="text" placeholder="Enter IP Address" id="ip-address">
-                <button>Connect + Attach to PS3 [HEN/CFW] [CEX/DEX]</button>
-            </div>
+    <div class="tabs-container">
+        <button class="tab-button active" data-tab="tab1" onclick="showTab('tab1')">Connection Point</button>
+        <button class="tab-button" data-tab="tab2" onclick="showTab('tab2')">ModLoader Injection</button>
+    </div>
 
-            <div class="form-group">
-                <input type="text" placeholder="Enter DevConsole Key" id="devconsole-key">
-                <button>Connect + Attach to DevConsole</button>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="anti-ban-script" onclick="toggleCheckboxWithDelay('anti-ban-script')">
-                <label for="anti-ban-script">Inject AntiBan Script</label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="devconsole-autostart" onclick="toggleCheckboxWithDelay('devconsole-autostart')">
-                <label for="devconsole-autostart">DevConsole AutoStart</label>
-            </div>
+    <div class="tab active" id="tab1">
+        <h2>Connection Point</h2>
+        <div class="form-group">
+            <input type="text" placeholder="Enter IP Address" id="ip-address">
+            <button>Connect + Attach to PS3 [HEN/CFW] [CEX/DEX]</button>
         </div>
 
-        <div class="tab" id="tab2">
-            <h2>ModLoader Injection</h2>
-            <button class="btn-inject" id="fury-demon" onclick="showStatusMessage('fury-demon')">1. FuryDemonV3</button>
-            <div id="fury-demon-status" class="status-message">Attached</div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter DevConsole Key" id="devconsole-key">
+            <button>Connect + Attach to DevConsole</button>
         </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="anti-ban-script" onclick="toggleCheckboxWithDelay('anti-ban-script', 'ip-address')">
+            <label for="anti-ban-script">Inject AntiBan Script</label>
+            <div id="anti-ban-script-error" class="error-message"></div>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="devconsole-autostart" onclick="toggleCheckboxWithDelay('devconsole-autostart', 'devconsole-key')">
+            <label for="devconsole-autostart">DevConsole AutoStart</label>
+            <div id="devconsole-autostart-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <div class="tab" id="tab2">
+        <h2>ModLoader Injection</h2>
+        <button class="btn-inject" id="fury-demon" onclick="showStatusMessage('fury-demon')">1. FuryDemonV3</button>
+        <div id="fury-demon-status" class="status-message">Attached</div>
     </div>
 </body>
 </html>
