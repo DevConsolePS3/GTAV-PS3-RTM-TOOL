@@ -36,37 +36,37 @@
             "#54065e"
         ],
         "BACKGROUND_PRIMARY": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_SECONDARY": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_SECONDARY_ALT": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_TERTIARY": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_ACCENT": [
-            "#transparent"
+            "#2d0333"
         ],
         "BACKGROUND_FLOATING": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_MOBILE_PRIMARY": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_MENTIONED": [
             "#2d0333"
         ],
         "BACKGROUND_MOBILE_SECONDARY": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_NESTED_FLOATING": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_MESSAGE_HOVER": [
-            "#transparent"
+            "#000000"
         ],
         "BACKGROUND_MODIFIER_HOVER": [
             "#transparent"
